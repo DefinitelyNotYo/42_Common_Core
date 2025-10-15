@@ -1,0 +1,18 @@
+             NO ./textures/northblue.xpm
+                        SO ./textures/southgreen.xpm
+
+WE ./textures/westred.xpm
+
+ EA ./textures/eastyellow.xpm
+
+F 102, 204, 102
+C 128, 193, 255
+
+1111111111111
+1000000000001
+1000001000001
+1000000000001
+1000000000001
+100000N000001
+1000000000001
+1111111111111
