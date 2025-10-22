@@ -6,15 +6,19 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:26:26 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/14 13:48:10 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/10/22 15:02:23 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
 {
     std::cout << "standard constructor has been called\n";
+    this->name = "noname";
     this->attackDamage = 0;
     this->energyPoints = 10;
     this->hitPoints = 10;
@@ -29,9 +33,23 @@ ClapTrap::ClapTrap(std::string name)
     this->hitPoints = 10;
 }
 
+ClapTrap::ClapTrap(ClapTrap &trap)
+{
+    *this = trap;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "destructor has been called\n";
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &value)
+{
+    this->name = value.name;
+    this->energyPoints = value.energyPoints;
+    this->hitPoints = value.hitPoints;
+    this->attackDamage = value.attackDamage;
+    return (*this);
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -80,3 +98,5 @@ void ClapTrap::beRepaired(unsigned int amount)
               << amount << " hp!" << std::endl;
     this->hitPoints += amount;
 }
+
+#endif

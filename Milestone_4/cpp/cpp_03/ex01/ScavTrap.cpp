@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:26:26 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/14 14:49:30 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/10/22 12:00:03 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ScavTrap::ScavTrap()
 {
     std::cout << "standard ScavTrap constructor has been called\n";
+    this->set_name("noname");
     this->set_hitPoints(100);
     this->set_energyPoints(50);
     this->set_attackDamage(20);
@@ -29,9 +30,23 @@ ScavTrap::ScavTrap(std::string name)
     this->set_attackDamage(20);    
 }
 
+ScavTrap::ScavTrap(ScavTrap &trap)
+{
+    *this = trap;
+}
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap has been destroyed\n"; 
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &value)
+{
+    if (this != &value)
+    {
+        ClapTrap::operator=(value);     
+    }
+    return (*this);
 }
 
 void ScavTrap::guardGate()

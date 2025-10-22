@@ -6,11 +6,11 @@
 #    By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/09 10:24:11 by yoherfan          #+#    #+#              #
-#    Updated: 2025/10/14 15:05:25 by yoherfan         ###   ########.fr        #
+#    Updated: 2025/10/22 10:33:40 by yoherfan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = FragTrap
 
 CC = c++
 

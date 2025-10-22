@@ -6,32 +6,42 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:26:26 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/14 14:41:26 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/10/22 11:59:49 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(): name("noname"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "standard ClapTrap constructor has been called\n";
-    this->attackDamage = 0;
-    this->energyPoints = 10;
-    this->hitPoints = 10;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name): name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "ClapTrap " << name << " has been created\n";
-    this->name = name;
-    this->attackDamage = 0;
-    this->energyPoints = 10;
-    this->hitPoints = 10;
+}
+
+ClapTrap::ClapTrap(ClapTrap &trap)
+{
+    *this = trap;
 }
 
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap has been destroyed\n";
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &value)
+{
+    if (this != &value)
+    {
+        this->name = value.name;
+        this->energyPoints = value.energyPoints;
+        this->hitPoints = value.hitPoints;
+        this->attackDamage = value.attackDamage;
+    }
+        return (*this);
 }
 
 void ClapTrap::attack(const std::string &target)

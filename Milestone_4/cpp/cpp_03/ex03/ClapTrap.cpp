@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:26:26 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/14 14:41:26 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:13:34 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap()
 {
     std::cout << "standard ClapTrap constructor has been called\n";
+    this->name = "noname";
     this->attackDamage = 0;
     this->energyPoints = 10;
     this->hitPoints = 10;
@@ -29,9 +30,26 @@ ClapTrap::ClapTrap(std::string name)
     this->hitPoints = 10;
 }
 
+ClapTrap::ClapTrap(ClapTrap &trap)
+{
+    *this = trap;
+}
+
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap has been destroyed\n";
+    std::cout << "ClapTrap " << name << " has been destroyed\n";
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &value)
+{
+    if (this != &value)
+    {
+        this->name = value.name;
+        this->energyPoints = value.energyPoints;
+        this->hitPoints = value.hitPoints;
+        this->attackDamage = value.attackDamage;
+    }
+        return (*this);
 }
 
 void ClapTrap::attack(const std::string &target)

@@ -6,9 +6,12 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:08:21 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/14 14:40:11 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/10/22 15:03:57 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <string>
 #include <iostream>
@@ -25,7 +28,10 @@ class ClapTrap
 	
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap &trap);
 	~ClapTrap();
+
+	ClapTrap &operator=(ClapTrap const &value);
 
 	void		attack(const std::string &target);
 	void		takeDamage(unsigned int amount);
@@ -39,3 +45,5 @@ class ClapTrap
 	void		set_energyPoints(int energyPoints);
 	void		set_attackDamage(int attackDamage);
 };
+
+#endif

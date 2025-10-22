@@ -6,17 +6,17 @@
 #    By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/09 10:24:11 by yoherfan          #+#    #+#              #
-#    Updated: 2025/10/14 15:05:25 by yoherfan         ###   ########.fr        #
+#    Updated: 2025/10/22 12:32:06 by yoherfan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = DiamondTrap
 
 CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
