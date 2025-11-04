@@ -6,9 +6,12 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:08:21 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/22 10:22:35 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/11/03 11:51:00 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <string>
 #include <iostream>
@@ -34,3 +37,5 @@ class ClapTrap
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 };
+
+#endif

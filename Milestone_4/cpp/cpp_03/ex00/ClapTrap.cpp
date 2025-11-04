@@ -6,12 +6,9 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:26:26 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/22 15:02:23 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/11/03 11:50:56 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -98,5 +95,3 @@ void ClapTrap::beRepaired(unsigned int amount)
               << amount << " hp!" << std::endl;
     this->hitPoints += amount;
 }
-
-#endif
