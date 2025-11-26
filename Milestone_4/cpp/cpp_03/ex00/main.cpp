@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/10/14 13:42:59 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int main()
 {
-    ClapTrap lhima("Luis");
+    ClapTrap dummy("Dummy");
     
-    lhima.attack("haribos");
-    lhima.takeDamage(9);
-    lhima.beRepaired(3);
-    lhima.takeDamage(10);
-    lhima.attack("haribos");
+    dummy.attack("Enemy");
+    dummy.takeDamage(9);
+    dummy.beRepaired(3);
+    dummy.takeDamage(10);
+    dummy.attack("Enemy");
     return 0;
 }
 

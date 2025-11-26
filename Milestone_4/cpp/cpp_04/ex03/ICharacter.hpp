@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/13 09:12:13 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/13 15:03:07 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-int main()
+#include <string>
+#include <iostream>
+
+class AMateria;
+
+class ICharacter
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
-}
+	public:
 
+	virtual ~ICharacter() {}
+	virtual std::string const &getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
+};
+
+#endif

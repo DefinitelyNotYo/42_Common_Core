@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/11 09:27:27 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/11 11:26:40 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Cat.hpp"
 
-int main()
+Cat::Cat()
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
+    std::cout << "standard Cat constructor has been called\n";
+    type = "Cat";
 }
 
+Cat::~Cat()
+{
+    std::cout << "Cat destructor has been called\n";    
+}
+
+Cat::Cat(Cat &c)
+{
+    *this = c;
+}
+
+Cat &Cat::operator=(Cat const &value)
+{
+    type = value.type;
+    return (*this);
+}
+
+void Cat::makeSound() const
+{
+    std::cout << "Miao\n";        
+}

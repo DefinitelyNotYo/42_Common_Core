@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/13 09:12:17 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/13 09:34:42 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-int main()
+#include <string>
+#include <iostream>
+#include "AMateria.hpp"
+
+class IMateriaSource
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
-}
+    public:
+    virtual ~IMateriaSource() {}
+    virtual void learnMateria(AMateria*) = 0;
+    virtual AMateria* createMateria(std::string const & type) = 0;
+};
 
+
+#endif

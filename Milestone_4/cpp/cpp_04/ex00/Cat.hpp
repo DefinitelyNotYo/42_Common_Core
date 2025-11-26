@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/11 09:27:31 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/11 11:41:51 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main()
+#include "Animal.hpp"
+
+class Cat : public Animal
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
-}
+    public:
+    
+    void    makeSound() const;
 
+    Cat();
+    virtual ~Cat();
+    Cat(Cat &c);
+
+    Cat &operator=(Cat const &value);
+};
+
+#endif

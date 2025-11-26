@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/13 09:11:53 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/13 10:40:57 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "AMateria.hpp"
 
-int main()
+class Cure : public AMateria
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
-}
+    public:
 
+    Cure();
+    ~Cure();
+	Cure(Cure &value);
+	Cure &operator=(Cure const &value);
+
+    Cure *clone() const;
+    void use(ICharacter& target);
+};

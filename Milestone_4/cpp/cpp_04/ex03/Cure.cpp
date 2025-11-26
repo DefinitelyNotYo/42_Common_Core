@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/13 09:11:50 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/13 15:14:05 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Cure.hpp"
 
-int main()
+Cure::Cure()
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
+    type = "Cure";
 }
 
+Cure::Cure(Cure &value)
+{
+    *this = value;
+}
+
+
+Cure::~Cure()
+{
+    
+}
+
+Cure &Cure::operator=(Cure const &value)
+{
+    return (*this);
+}
+
+Cure *Cure::clone() const
+{
+    Cure *x = new Cure();
+    return (x);
+}
+
+void Cure::use(ICharacter& target)
+{
+    std::cout << "* heals " << target.getName() << "'s wounds *\n";
+}

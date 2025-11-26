@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/11 09:27:33 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/11 11:26:54 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Dog.hpp"
 
-int main()
+Dog::Dog()
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
+    std::cout << "standard Dog constructor has been called\n";
+    type = "Dog";
 }
 
+Dog::~Dog()
+{
+    std::cout << "Dog destructor has been called\n";    
+}
+
+Dog::Dog(Dog &c)
+{
+    *this = c;
+}
+
+Dog &Dog::operator=(Dog const &value)
+{
+    type = value.type;
+    return (*this);
+}
+
+void Dog::makeSound() const
+{
+    std::cout << "Bau\n";        
+}

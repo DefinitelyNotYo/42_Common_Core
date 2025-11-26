@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 11:14:48 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/11/13 09:12:07 by yoherfan          #+#    #+#             */
+/*   Updated: 2025/11/13 15:14:13 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "Ice.hpp"
 
-int main()
+Ice::Ice()
 {
-    ScavTrap dummy("Dummy");
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    dummy.set_energyPoints(-42);
-    dummy.attack("Enemy");
-    dummy.guardGate();
-    return 0;
+    type = "ice";
 }
 
+Ice::Ice(Ice &value)
+{
+    *this = value;
+}
+
+
+Ice::~Ice()
+{
+    
+}
+
+Ice &Ice::operator=(Ice const &value)
+{
+    return (*this);
+}
+
+Ice *Ice::clone() const
+{
+    Ice *x = new Ice();
+    return (x);
+}
+
+void Ice::use(ICharacter& target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+}
