@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:27:33 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 14:34:42 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/12/03 08:53:53 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ Dog::~Dog()
 Dog::Dog(Dog &c)
 {
     std::cout << "Copy Dog constructor has been called\n";
+    this->brain = new Brain();
     *this = c;
 }
 
 Dog &Dog::operator=(Dog const &value)
 {
     type = value.type;
+    this->brain = value.brain;
     return (*this);
 }
 

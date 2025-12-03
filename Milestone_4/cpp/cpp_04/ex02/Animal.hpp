@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:27:25 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/11 14:58:00 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/12/03 08:55:10 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ class Animal
     
     protected:
 
-    Animal();
-    Animal(Animal &a);
     std::string type;
 
     public:
     
-    virtual void        makeSound() const;
+    Animal();
+    Animal(Animal &a);
+    
+    virtual void        makeSound() const = 0;
     std::string getType() const;
     
     virtual ~Animal();

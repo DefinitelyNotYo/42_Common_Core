@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:11:40 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/13 09:53:29 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:45:23 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
     protected:
@@ -26,15 +28,15 @@ class AMateria
 
 	AMateria();
 	AMateria(AMateria &value);
-	~AMateria();
 	AMateria &operator=(AMateria const &value);
 	
     public:
 
+    virtual ~AMateria();
     AMateria(std::string const & type);
     std::string const &getType() const; //Returns the materia type
     virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    virtual void use(ICharacter &target);
 };
 
 #endif

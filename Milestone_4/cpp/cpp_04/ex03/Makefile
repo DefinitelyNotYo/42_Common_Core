@@ -6,11 +6,11 @@
 #    By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/11 10:38:20 by yoherfan          #+#    #+#              #
-#    Updated: 2025/11/13 10:57:57 by yoherfan         ###   ########.fr        #
+#    Updated: 2025/11/27 11:42:45 by yoherfan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animals
+NAME = materia
 
 CC = c++
 

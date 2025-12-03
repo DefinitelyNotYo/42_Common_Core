@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 10:37:48 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/13 14:58:41 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/12/03 10:17:49 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int main()
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
+    me->use(1, *bob);
+    // me->unequip(1);
     me->use(1, *bob);
     delete bob;
     delete me;

@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:12:07 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/13 15:14:13 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/11/27 11:38:51 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Ice::~Ice()
 
 Ice &Ice::operator=(Ice const &value)
 {
+    (void)value;
     return (*this);
 }
 

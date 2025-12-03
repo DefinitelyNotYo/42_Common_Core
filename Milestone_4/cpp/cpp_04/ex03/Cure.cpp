@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:11:50 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/13 15:14:05 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:05:27 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cure::Cure()
 {
-    type = "Cure";
+    type = "cure";
 }
 
 Cure::Cure(Cure &value)
@@ -30,6 +30,7 @@ Cure::~Cure()
 
 Cure &Cure::operator=(Cure const &value)
 {
+    (void)value;
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:30:05 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/11/13 14:57:07 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/12/03 09:52:08 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Character : public ICharacter
     Character(std::string n);
 
 	std::string const &getName() const;
+    void getInventory() const;
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
