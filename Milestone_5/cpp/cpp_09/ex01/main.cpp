@@ -5,24 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 13:26:19 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/12/19 16:25:49 by yoherfan         ###   ########.fr       */
+/*   Created: 2026/02/18 15:09:00 by yoherfan          #+#    #+#             */
+/*   Updated: 2026/02/24 15:07:42 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#include "RPN.hpp"
 
-int main() 
+int main(int argc, char **argv)
 {
-	Point a(-2, 2);
-	Point b(2, 2);
-	Point c(2, -2);
-	Point p(1, 1);
-
-	if (p.get_x() != a.get_x() && p.get_x() != b.get_x() && p.get_x() != c.get_x() &&
-		p.get_y() != a.get_y() && p.get_y() != b.get_y() && p.get_y() != c.get_y() &&
-		bsp(a, b, c, p) == true)
-		std::cout << "The point p is contained in the triangle" << std::endl;
-	else
-		std::cout << "The point p is NOT contained in the triangle" << std::endl;		
+    if (argc != 2)
+    {
+        std::cerr << "Error: invalid parameters\n";
+        return (0);
+    }
+    int args = count_args(argv[1]);
+    char **exp;
+    exp = split(argv[1], args);
+    if (check_arguments(args, exp) == 0)
+        if(resolve_exp(args, exp) == 1)
+            std::cout << "Error: invalid expression\n";
+    int i = -1;
+    while (++i < args)
+        delete[] (exp[i]);
+    delete[] (exp);
 }

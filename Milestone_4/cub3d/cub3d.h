@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cciapett <cciapett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:09:05 by cciapett          #+#    #+#             */
-/*   Updated: 2025/09/23 14:53:31 by cciapett         ###   ########.fr       */
+/*   Updated: 2026/01/09 17:02:05 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "minilibx-linux_cub3d/mlx.h"
-#include "minilibx-linux_cub3d/mlx_int.h"
+#include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx_int.h"
 #include <X11/X.h>
 #include <X11/keysym.h>
 #include <math.h>

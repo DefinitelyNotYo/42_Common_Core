@@ -1,39 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Template.hpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:19:39 by yoherfan          #+#    #+#             */
-/*   Updated: 2026/01/09 14:43:59 by yoherfan         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:18:25 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEMPLATE_HPP
-# define TEMPLATE_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
-template <typename T> void swap(T x, T y)
+#include <iostream>
+#include <exception>
+
+
+template <typename T> class Array
 {
-    T n = x;
-    x = y;
-    y = n;
-}
+	private:
 
-template <typename T> T max(T x, T y)
-{
-    if (x > y)
-        return (x);
-    else
-        return (y);
-}
+	T *v;
+	unsigned int size;
+	
+    public:
+    
+    Array();
+    Array(unsigned int n);
+    Array(Array &a);
+    ~Array();
 
-template <typename T> T min (T x, T y)
-{
-    if (x < y)
-        return (x);
-    else
-        return (y);
-}
+	Array &operator = (Array const &value);
+	T &operator [] (unsigned int i);
+    
+    unsigned int Size();
 
+	class OutOfBoundsException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+};
+
+#include "Array.tpp" 
 #endif

@@ -5,50 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/18 16:04:07 by cciapett          #+#    #+#              #
-#    Updated: 2026/01/09 17:04:21 by yoherfan         ###   ########.fr        #
+#    Created: 2025/11/11 10:38:20 by yoherfan          #+#    #+#              #
+#    Updated: 2026/02/18 17:38:20 by yoherfan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = RPN
 
-NAME = cub3d
+CC = c++
 
-CC = cc
+CFLAGS = -Wall -Werror -Wextra -g -std=c++98
 
-LIB = -Lminilibx-linux -lmlx -lXext -lX11 -lm -Llibft -l:libft.a
+SRCS = main.cpp RPN.cpp
 
-CFLAGS = -Wall -Werror -Wextra -g -Iminilibx-linux -Ilibft 
-
-SRCS = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
-parsing/check_direction.c parsing/clean_parsing.c \
-parsing/input_file.c parsing/inspect.c \
-parsing/inspect2.c parsing/line.c parsing/messages.c \
-parsing/parsing_map.c parsing/parsing_utils.c parsing/parsing.c \
-main.c read_map.c rays.c display.c computation.c moves.c color.c
-
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft
-	make -C minilibx-linux
-	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
-	make clean -C libft
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C libft
 
 re: fclean all
-
-norminette: 
-	norminette $(SRCS)
 
 .PHONY: all clean fclean re

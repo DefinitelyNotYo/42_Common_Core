@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 09:27:36 by yoherfan          #+#    #+#             */
-/*   Updated: 2026/01/14 16:19:39 by yoherfan         ###   ########.fr       */
+/*   Created: 2026/02/18 14:57:47 by yoherfan          #+#    #+#             */
+/*   Updated: 2026/02/24 12:14:37 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include <iostream>
+#include "ostream"
+#include "stdlib.h"
+#include "stack"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal
-{
-    private:
-
-    Brain *brain;
-    
-    public:
-    
-    void    makeSound() const;
-    //  std::string name;
-    Dog();
-    virtual ~Dog();
-    Dog(Dog &c);
-
-    Dog &operator=(Dog const &value);
-};
-
-#endif
+int	check_arguments(int argc, char **argv);
+int resolve_exp(int argc, char **argv);
+int check_number(char *str);
+int operation_handler(int a, int b, int op);
+int count_args(char *argv);
+char **split(char *argv, int args);

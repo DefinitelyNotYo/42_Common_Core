@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 09:27:36 by yoherfan          #+#    #+#             */
-/*   Updated: 2026/01/14 16:19:39 by yoherfan         ###   ########.fr       */
+/*   Created: 2025/12/04 09:04:06 by yoherfan          #+#    #+#             */
+/*   Updated: 2026/01/12 10:46:03 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Easyfind.hpp"
+#include <iostream>
+#include <string>
+#include <iterator>
+#include <vector>
+#include <algorithm>
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal
+int main ()
 {
-    private:
-
-    Brain *brain;
-    
-    public:
-    
-    void    makeSound() const;
-    //  std::string name;
-    Dog();
-    virtual ~Dog();
-    Dog(Dog &c);
-
-    Dog &operator=(Dog const &value);
-};
-
-#endif
+	std::vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+	::easyfind(v, 5);
+	return 0;
+}

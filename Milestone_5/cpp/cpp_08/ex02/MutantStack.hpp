@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 09:27:25 by yoherfan          #+#    #+#             */
-/*   Updated: 2026/01/14 16:10:14 by yoherfan         ###   ########.fr       */
+/*   Created: 2026/01/14 09:07:54 by yoherfan          #+#    #+#             */
+/*   Updated: 2026/01/14 11:04:37 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
-#include <string>
 #include <iostream>
+#include <algorithm>
+#include <stack>
+#include <iterator>
+#include <list>
 
-class Animal
+template <typename T> class MutantStack : public std::stack<T>
 {
-    protected:
-    
-    std::string type;
+	public:
+	
+	MutantStack();
+	MutantStack(MutantStack &value);
+	MutantStack &operator = (MutantStack const &value);
+	~MutantStack();
 
-    public:
-    
-    virtual void        makeSound() const;
-    std::string getType() const;
-     std::string name;  
-    Animal();
-    virtual ~Animal();
-    Animal(Animal &a);
-
-    Animal &operator=(Animal const &value);
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	iterator begin();
+	iterator end();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:04:06 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/12/05 14:34:24 by yoherfan         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:36:32 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int main()
         // f.executeForm(e);
         // // e.execute(f);
 
-        // ShrubberyCreationForm d("Test");
-        // ShrubberyCreationForm e(d);
-        // Bureaucrat f("Filippo", 25);
-        // f.signForm(e);
-        // f.executeForm(e);
-        // // e.execute(f);
+        ShrubberyCreationForm d("Test");
+        ShrubberyCreationForm e(d);
+        Bureaucrat f("Filippo", 25);
+        f.signForm(e);
+        f.executeForm(e);
+        e.execute(f);
 
         // RobotomyRequestForm d("Test");
         // RobotomyRequestForm e(d);

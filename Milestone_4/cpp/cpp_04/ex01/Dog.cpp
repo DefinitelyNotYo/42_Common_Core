@@ -6,7 +6,7 @@
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:27:33 by yoherfan          #+#    #+#             */
-/*   Updated: 2025/12/03 08:53:53 by yoherfan         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:28:10 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Dog::Dog()
 
 Dog::~Dog()
 {
+    // if (this->brain)
     delete(brain); 
     std::cout << "Dog destructor has been called\n";
 }
@@ -34,8 +35,11 @@ Dog::Dog(Dog &c)
 
 Dog &Dog::operator=(Dog const &value)
 {
-    type = value.type;
-    this->brain = value.brain;
+    if (this != &value)
+    {
+        type = value.type;
+        *this->brain = *value.brain;
+    }
     return (*this);
 }
 
