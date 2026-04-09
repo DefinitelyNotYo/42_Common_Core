@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Http.hpp                                           :+:      :+:    :+:   */
+/*   Client.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoherfan <yoherfan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 14:15:18 by yoherfan          #+#    #+#             */
-/*   Updated: 2026/04/09 18:17:03 by yoherfan         ###   ########.fr       */
+/*   Created: 2026/04/09 17:21:56 by yoherfan          #+#    #+#             */
+/*   Updated: 2026/04/09 17:48:30 by yoherfan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HTTPREQUEST_HPP
-# define HTTPREQUEST_HPP
+#ifndef CLIENT_HPP
+# define CLIENT_HPP
 
 # include "External.hpp"
+# include "Http.hpp"
 
-class HttpRequest
+class Client
 {
 	public:
 
-		std::map<std::string, std::string>	headers;
-		std::string method;
-		std::string version;
-		std::string uri;
-		std::string body;
-		
-		void print_request();
-		bool contains_body();
+        std::string			        read_buf;
+		std::vector<HttpRequest>	requests;
+        HttpRequest                 ghost_request;
+        
+        void parse_request();
+        void parse_headers();
 
 };
-
-// void parse_request(std::vector<HttpRequest> &requests, std::string &read_buf);
-// void parse_headers(std::vector<HttpRequest> &requests, std::string &read_buf);
-
 
 #endif
