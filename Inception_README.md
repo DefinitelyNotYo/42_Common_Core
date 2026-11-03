@@ -4,9 +4,9 @@
 
 ## Description
 
-**Goal.** Inception is a system administration project whose aim is to build a small web infrastructure with **Docker** and **Docker Compose**, inside a virtual machine. Each service runs in its own dedicated container, built from a custom Dockerfile based on `debian:bookworm` (no pre-built service images pulled from Docker Hub).
+Inception is a system administration project whose aim is to build a small web infrastructure with **Docker** and **Docker Compose**, inside a virtual machine. Each service runs in its own dedicated container, built from a custom Dockerfile.
 
-**Overview.** The stack is made of three services:
+The stack is made of three services:
 
 | Service | Image | Role |
 |---|---|---|
@@ -46,7 +46,7 @@ inception/
 
 - **`Makefile`**: builds and manages the whole stack (`all`, `build`, `up`, `down`, `clean`, `fclean`, `re`) and creates the data directories.
 - **`srcs/docker-compose.yml`**: defines the three services, the network, the volumes and the secrets.
-- **`srcs/.env`**: non-sensitive configuration (domain name, database name, database user).
+- **`srcs/.env`**: non-sensitive configuration (domain name, database name, database user, must never be committed to the repositery during the evaluation).
 - **`secrets/`**: password files used as Docker secrets (must never be committed to the repository).
 - **`requirements/mariadb/`**: Dockerfile, server configuration (`50-server.cnf`) and `init_db.sh`, which initializes the data directory, creates the database and the user on first run, then starts `mysqld` in the foreground.
 - **`requirements/nginx/`**: Dockerfile, `nginx.conf` (TLS, FastCGI pass to `wordpress:9000`) and `generate_ssl.sh`, which generates a self-signed certificate and starts nginx in the foreground.
@@ -107,7 +107,7 @@ A custom bridge network (`inception-network`) is used, so only nginx's port 443 
 | Portability | Independent of the host directory layout | Depends on the host filesystem |
 | Typical use | Persistent application data | Development, sharing sources/configs with the host |
 
-This project declares **named volumes** (`mariadb_data`, `wordpress_data`) whose storage location is set to `/home/<login>/data/mariadb` and `/home/<login>/data/wordpress` through the `local` driver options, as required by the subject: they are managed as Docker volumes but the data lives at a known path on the host.
+This project declares **named volumes** (`mariadb_data`, `wordpress_data`) whose storage location is set to `/home/yoherfan>/data/mariadb` and `/home/yoherfan/data/wordpress` through the `local` driver options, as required by the subject: they are managed as Docker volumes but the data lives at a known path on the host.
 
 ## Instructions
 
@@ -180,10 +180,10 @@ Once the containers are up (`docker ps` shows `nginx`, `wordpress` and `mariadb`
 
 ### Use of AI
 
-AI (Claude) was used as a support tool for:
+AI was used as a support tool for:
 
 - **Understanding concepts**: [e.g. PID 1 and foreground processes, Docker secrets, volumes vs bind mounts, FastCGI between nginx and PHP-FPM].
-- **Debugging**: [e.g. updating `init_db.sh` and `setup_wordpress.sh` to read the passwords from Docker secrets; investigating why the `wordpress_db` database had no tables after startup].
-- **Documentation**: drafting and structuring this README.
+- **Debugging**: updating `init_db.sh` and `setup_wordpress.sh` to read the passwords from Docker secrets; investigating why the `wordpress_db` database had no tables after startup.
+- **Documentation**: structuring this README and the USER and DEV docs.
 
 All AI-generated content was reviewed, tested and fully understood before being included in the project.
